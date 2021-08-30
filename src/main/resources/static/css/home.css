@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    background-color: #8B9EB7;
+}
+body {
+    margin: 0;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+.flex-container {
+    display: flex;
+    width: 100%;
+    border: 3px solid #91F5AD;
+}
+.flex-item {
+    background: #BFD45D;
+    border: 2px solid #F9EFD6;
+    padding: 1em;
+}
+
+h1 {
+    color: #C2E812;
+}
+
+h2 {
+    color: #745296;
+}
+
+p {
+    color: #632A50;
+}
