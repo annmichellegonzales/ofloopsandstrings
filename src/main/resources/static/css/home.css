@@ -20,12 +20,15 @@ body {
 
 h1 {
     color: #C2E812;
+    font-family: 'Princess Sofia', cursive;
 }
 
 h2 {
     color: #745296;
+    font-family: 'Princess Sofia', cursive;
 }
 
 p {
     color: #632A50;
+    font-family: 'Roboto', sans-serif;
 }
