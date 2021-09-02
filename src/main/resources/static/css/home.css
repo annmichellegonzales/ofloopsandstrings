@@ -1,38 +1,50 @@
-* {
-    box-sizing: border-box;
+/** {*/
+    /*box-sizing: border-box;*/
     /*background-color: #8B9EB7;*/
-}
+/*}*/
+
 body {
     margin: 0;
     font-family: "Roboto Thin", sans-serif;
     font-weight: bold;
+    background-image: url('static/img/spiral.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-.flex-container {
-    display: flex;
-    width: 100%;
-    border: 3px solid #91F5AD;
-}
-.flex-item {
-    background: #BFD45D;
-    border: 2px solid #F9EFD6;
-    padding: 1em;
-}
+/*.flex-container {*/
+/*    display: flex;*/
+/*    width: 100%;*/
+/*    border: 3px solid #91F5AD;*/
+/*}*/
+/*.flex-item {*/
+/*    background: #BFD45D;*/
+/*    border: 2px solid #F9EFD6;*/
+/*    padding: 1em;*/
+/*}*/
 
 h1 {
     color: #C2E812;
     font-family: 'Princess Sofia', cursive;
+    max-width: 500px;
+    margin: auto;
 }
 
 h2 {
     color: #745296;
     font-family: 'Princess Sofia', cursive;
+    max-width: 500px;
+    margin: auto;
 }
 
 p {
     color: #632A50;
     font-family: 'Roboto', sans-serif;
+    max-width: 500px;
+    margin: auto;
 }
 
-.elric {
-
+#elric {
+    width: 300px;
+    margin: auto;
 }
