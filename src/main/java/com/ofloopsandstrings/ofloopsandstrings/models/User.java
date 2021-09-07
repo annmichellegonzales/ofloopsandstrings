@@ -1,8 +1,11 @@
 package com.ofloopsandstrings.ofloopsandstrings.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,13 +21,18 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    public User(long id, String username, String password) {
+    @ManyToMany(mappedBy = "categoryList")
+    @JsonBackReference
+    private List<Post> categoryList;
+
+    public User() {
+    }
+
+    public User(long id, String username, String password, List categoryList) {
         this.id = id;
         this.username = username;
         this.password = password;
-    }
-
-    public User() {
+        this.categoryList = categoryList;
     }
 
     public long getId() {
@@ -51,4 +59,11 @@ public class User {
         this.password = password;
     }
 
+    public List<Post> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Post> categoryList) {
+        this.categoryList = categoryList;
+    }
 }

@@ -21,21 +21,24 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "posts_categories",
-//            joinColumns = @JoinColumn(name = "post_id", referencedColumnName = "categories_id"))
-//    @JsonManagedReference
-//    private List<Category> categories;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "categories_post",
+            joinColumns = {@JoinColumn(name = "category_id")},
+            inverseJoinColumns = {@JoinColumn(name = "categories_id")}
+    )
+    @JsonManagedReference
+    private List<Category> categoryList;
 
     public Post() {
 
     }
 
-    public Post(long id, String title, String body, List<Category> categories) {
+    public Post(long id, String title, String body, List<Category> categoryList) {
         this.id = id;
         this.title = title;
         this.body = body;
-//        this.categories = categories;
+        this.categoryList = categoryList;
     }
 
     public long getId() {
@@ -62,11 +65,11 @@ public class Post {
         this.body = body;
     }
 
-//    public List<Category> getCategories() {
-//        return categories;
-//    }
-//
-//    public void setCategories(List<Category> categories) {
-//        this.categories = categories;
-//    }
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
 }
