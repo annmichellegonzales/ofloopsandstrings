@@ -2,11 +2,10 @@ package com.ofloopsandstrings.ofloopsandstrings.models;
 
 import org.springframework.stereotype.Controller;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Controller
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -23,6 +22,9 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public long getId() {

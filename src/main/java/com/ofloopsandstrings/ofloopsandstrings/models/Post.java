@@ -1,30 +1,41 @@
 package com.ofloopsandstrings.ofloopsandstrings.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Post {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
-    private String post_title;
+    private String title;
 
     @Column(nullable = false)
-    private String post_body;
+    private String body;
 
-    public Post(long id, String post_title, String post_body) {
-        this.id = id;
-        this.post_title = post_title;
-        this.post_body = post_body;
-    }
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "posts_categories",
+//            joinColumns = @JoinColumn(name = "post_id", referencedColumnName = "categories_id"))
+//    @JsonManagedReference
+//    private List<Category> categories;
 
     public Post() {
 
+    }
+
+    public Post(long id, String title, String body, List<Category> categories) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+//        this.categories = categories;
     }
 
     public long getId() {
@@ -35,19 +46,27 @@ public class Post {
         this.id = id;
     }
 
-    public String getPost_title() {
-        return post_title;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPost_title(String post_title) {
-        this.post_title = post_title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getPost_body() {
-        return post_body;
+    public String getBody() {
+        return body;
     }
 
-    public void setPost_body(String post_body) {
-        this.post_body = post_body;
+    public void setBody(String body) {
+        this.body = body;
     }
+
+//    public List<Category> getCategories() {
+//        return categories;
+//    }
+//
+//    public void setCategories(List<Category> categories) {
+//        this.categories = categories;
+//    }
 }
